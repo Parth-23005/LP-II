@@ -1,0 +1,528 @@
+# Problem Statement: Implement an Expert System for Hospitals and Medical Facilities.
+# Updated with 10 diseases as per PS requirement.
+
+
+# ---------------- INTRODUCTION ----------------
+
+def intro():
+
+    print("=" * 70)
+    print("     EXPERT SYSTEM FOR HOSPITALS AND MEDICAL FACILITIES")
+    print("=" * 70)
+
+
+# ---------------- PATIENT ANALYSIS ----------------
+
+def patient_analysis():
+
+    print("\n" + "-" * 15 + " PATIENT DETAILS " + "-" * 15)
+
+    name = input("Enter Patient Name : ")
+
+    age = int(input("Enter Patient Age  : "))
+
+    print("\nAnswer the following questions with yes/no\n")
+
+    fever        = input("Do you have fever?                    : ")
+    cough        = input("Do you have cough?                    : ")
+    chest_pain   = input("Do you have chest pain?               : ")
+    headache     = input("Do you have headache?                 : ")
+    stomach      = input("Do you have stomach pain?             : ")
+    injury       = input("Do you have any injury/fracture?      : ")
+    skin_rash    = input("Do you have skin rash/itching?        : ")
+    breathless   = input("Do you have difficulty breathing?     : ")
+    high_sugar   = input("Do you have high sugar/frequent urine?: ")
+    body_ache    = input("Do you have body ache/joint pain?     : ")
+
+    print("\n" + "-" * 15 + " MEDICAL REPORT " + "-" * 15)
+
+    print("\nPatient Name :", name)
+    print("Patient Age  :", age)
+
+    # ---------------- EXPERT RULES (10 DISEASES) ----------------
+
+    # DISEASE 1: Viral Infection / Flu
+    if fever == "yes" and cough == "yes":
+
+        print("\nPossible Condition    : Viral Infection or Flu")
+        print("\nRecommended Department: General Medicine")
+        print("\nDoctor Suggestion     : Consult General Physician")
+        print("\nMedical Advice:")
+        print("- Drink plenty of water")
+        print("- Take proper rest")
+        print("- Monitor body temperature")
+
+    # DISEASE 2: Heart Problem
+    elif chest_pain == "yes":
+
+        print("\nPossible Condition    : Heart Related Problem")
+        print("\nRecommended Department: Cardiology")
+        print("\nDoctor Suggestion     : Consult Heart Specialist Immediately")
+        print("\nEmergency Advice:")
+        print("- Avoid physical activity")
+        print("- Visit nearest hospital immediately")
+
+    # DISEASE 3: Migraine / Stress
+    elif headache == "yes" and fever == "no":
+
+        print("\nPossible Condition    : Migraine or Stress")
+        print("\nRecommended Department: Neurology")
+        print("\nDoctor Suggestion     : Consult Neurologist")
+        print("\nMedical Advice:")
+        print("- Take adequate rest")
+        print("- Avoid stress")
+        print("- Stay hydrated")
+
+    # DISEASE 4: Digestion Problem
+    elif stomach == "yes":
+
+        print("\nPossible Condition    : Digestion Problem or Infection")
+        print("\nRecommended Department: Gastroenterology")
+        print("\nDoctor Suggestion     : Consult Stomach Specialist")
+        print("\nMedical Advice:")
+        print("- Eat light food")
+        print("- Avoid oily/spicy food")
+
+    # DISEASE 5: Bone Injury / Fracture
+    elif injury == "yes":
+
+        print("\nPossible Condition    : Bone Injury or Fracture")
+        print("\nRecommended Department: Orthopedics")
+        print("\nDoctor Suggestion     : Consult Orthopedic Doctor")
+        print("\nEmergency Advice:")
+        print("- Avoid moving injured area")
+        print("- Apply ice if swelling occurs")
+
+    # DISEASE 6: Skin Infection / Allergy
+    elif skin_rash == "yes":
+
+        print("\nPossible Condition    : Skin Infection or Allergy")
+        print("\nRecommended Department: Dermatology")
+        print("\nDoctor Suggestion     : Consult Dermatologist")
+        print("\nMedical Advice:")
+        print("- Avoid scratching affected area")
+        print("- Apply prescribed cream")
+        print("- Avoid allergens")
+
+    # DISEASE 7: Asthma / Respiratory Problem
+    elif breathless == "yes" and cough == "yes":
+
+        print("\nPossible Condition    : Asthma or Respiratory Problem")
+        print("\nRecommended Department: Pulmonology")
+        print("\nDoctor Suggestion     : Consult Pulmonologist")
+        print("\nMedical Advice:")
+        print("- Use inhaler if prescribed")
+        print("- Avoid dusty environments")
+        print("- Avoid physical exertion")
+
+    # DISEASE 8: Diabetes
+    elif high_sugar == "yes":
+
+        print("\nPossible Condition    : Diabetes Mellitus")
+        print("\nRecommended Department: Endocrinology")
+        print("\nDoctor Suggestion     : Consult Endocrinologist")
+        print("\nMedical Advice:")
+        print("- Avoid sugary food and drinks")
+        print("- Monitor blood sugar regularly")
+        print("- Follow prescribed diet plan")
+
+    # DISEASE 9: Dengue / Typhoid
+    elif fever == "yes" and body_ache == "yes":
+
+        print("\nPossible Condition    : Dengue or Typhoid")
+        print("\nRecommended Department: Infectious Disease / General Medicine")
+        print("\nDoctor Suggestion     : Consult General Physician Immediately")
+        print("\nMedical Advice:")
+        print("- Get blood test done immediately")
+        print("- Drink plenty of fluids")
+        print("- Take complete bed rest")
+
+    # DISEASE 10: Arthritis / Joint Pain
+    elif body_ache == "yes" and fever == "no":
+
+        print("\nPossible Condition    : Arthritis or Joint Pain")
+        print("\nRecommended Department: Rheumatology / Orthopedics")
+        print("\nDoctor Suggestion     : Consult Rheumatologist")
+        print("\nMedical Advice:")
+        print("- Avoid heavy physical work")
+        print("- Apply warm compress on joints")
+        print("- Take prescribed pain relief medication")
+
+    # NO MAJOR SYMPTOMS
+    else:
+
+        print("\nNo Major Symptoms Detected.")
+        print("\nGeneral Advice:")
+        print("- Maintain healthy lifestyle")
+        print("- Regular health checkup recommended")
+
+
+# ---------------- EMERGENCY SERVICES ----------------
+
+def emergency_services():
+
+    print("\n" + "-" * 15 + " EMERGENCY SERVICES " + "-" * 15)
+
+    print("\nAvailable Emergency Facilities:")
+    print("- 24x7 Emergency Ward")
+    print("- Ambulance Service")
+    print("- ICU Facility")
+    print("- Blood Bank")
+    print("- Trauma Care")
+
+    print("\nEmergency Contact Number:")
+    print("+91-108")
+
+
+# ---------------- HOSPITAL FACILITIES ----------------
+
+def hospital_facilities():
+
+    print("\n" + "-" * 15 + " HOSPITAL FACILITIES " + "-" * 15)
+
+    print("\nAvailable Facilities:\n")
+    print("- OPD Services")
+    print("- Pharmacy")
+    print("- Diagnostic Laboratory")
+    print("- MRI and CT Scan")
+    print("- ICU and Emergency Care")
+    print("- Ambulance Service")
+    print("- Online Appointment System")
+
+
+# ---------------- SPECIALIST DEPARTMENTS ----------------
+
+def departments():
+
+    print("\n" + "-" * 15 + " SPECIALIST DEPARTMENTS " + "-" * 15)
+
+    print("\nDepartments Available:\n")
+    print("1.  Cardiology")
+    print("2.  Neurology")
+    print("3.  Orthopedics")
+    print("4.  Gastroenterology")
+    print("5.  General Medicine")
+    print("6.  Pediatrics")
+    print("7.  Dermatology")
+    print("8.  Pulmonology")
+    print("9.  Endocrinology")
+    print("10. Rheumatology")
+
+
+# ---------------- ABOUT SYSTEM ----------------
+
+def about_system():
+
+    print("\n" + "-" * 15 + " ABOUT EXPERT SYSTEM " + "-" * 15)
+
+    print("\nThis Expert System uses rule-based logic")
+    print("to analyze patient symptoms and provide:")
+    print("- Medical Suggestions")
+    print("- Department Recommendations")
+    print("- Emergency Guidance")
+
+    print("\nDiseases Covered:")
+    print("1.  Viral Infection / Flu")
+    print("2.  Heart Problem")
+    print("3.  Migraine / Stress")
+    print("4.  Digestion Problem")
+    print("5.  Bone Injury / Fracture")
+    print("6.  Skin Infection / Allergy")
+    print("7.  Asthma / Respiratory Problem")
+    print("8.  Diabetes")
+    print("9.  Dengue / Typhoid")
+    print("10. Arthritis / Joint Pain")
+
+    print("\nNote:")
+    print("This system is for educational purposes only.")
+    print("Always consult certified doctors for treatment.")
+
+
+# ---------------- MAIN SYSTEM ----------------
+
+def expert_system():
+
+    while True:
+
+        print("\n" + "=" * 20 + " MAIN MENU " + "=" * 20)
+
+        print("1. Patient Symptom Analysis")
+        print("2. Emergency Services")
+        print("3. Hospital Facilities")
+        print("4. Specialist Departments")
+        print("5. About Expert System")
+        print("6. Exit")
+
+        choice = input("\nEnter your choice: ")
+
+        if choice == "1":
+            patient_analysis()
+
+        elif choice == "2":
+            emergency_services()
+
+        elif choice == "3":
+            hospital_facilities()
+
+        elif choice == "4":
+            departments()
+
+        elif choice == "5":
+            about_system()
+
+        elif choice == "6":
+            print("\nThank You for Using Medical Expert System!")
+            print("Stay Healthy and Safe.")
+            break
+
+        else:
+            print("\nInvalid Choice! Please Try Again.")
+
+
+# ---------------- DRIVER CODE ----------------
+
+intro()
+
+expert_system()
+
+# END OF CODE
+
+
+"""======================================================================
+     EXPERT SYSTEM FOR HOSPITALS AND MEDICAL FACILITIES
+======================================================================
+
+==================== MAIN MENU ====================
+1. Patient Symptom Analysis
+2. Emergency Services
+3. Hospital Facilities
+4. Specialist Departments
+5. About Expert System
+6. Exit
+
+Enter your choice: 1
+
+--------------- PATIENT DETAILS ---------------
+
+Enter Patient Name : Rahul Sharma
+Enter Patient Age  : 28
+
+Answer the following questions with yes/no
+
+Do you have fever?                    : yes
+Do you have cough?                    : yes
+Do you have chest pain?               : no
+Do you have headache?                 : no
+Do you have stomach pain?             : no
+Do you have any injury/fracture?      : no
+Do you have skin rash/itching?        : no
+Do you have difficulty breathing?     : no
+Do you have high sugar/frequent urine?: no
+Do you have body ache/joint pain?     : no
+
+--------------- MEDICAL REPORT ---------------
+
+Patient Name : Rahul Sharma
+Patient Age  : 28
+
+Possible Condition    : Viral Infection or Flu
+
+Recommended Department: General Medicine
+
+Doctor Suggestion     : Consult General Physician
+
+Medical Advice:
+- Drink plenty of water
+- Take proper rest
+- Monitor body temperature
+
+==================== MAIN MENU ====================
+Enter your choice: 1
+
+--------------- PATIENT DETAILS ---------------
+
+Enter Patient Name : Priya Mehta
+Enter Patient Age  : 45
+
+Answer the following questions with yes/no
+
+Do you have fever?                    : no
+Do you have cough?                    : no
+Do you have chest pain?               : yes
+Do you have headache?                 : no
+Do you have stomach pain?             : no
+Do you have any injury/fracture?      : no
+Do you have skin rash/itching?        : no
+Do you have difficulty breathing?     : no
+Do you have high sugar/frequent urine?: no
+Do you have body ache/joint pain?     : no
+
+--------------- MEDICAL REPORT ---------------
+
+Patient Name : Priya Mehta
+Patient Age  : 45
+
+Possible Condition    : Heart Related Problem
+
+Recommended Department: Cardiology
+
+Doctor Suggestion     : Consult Heart Specialist Immediately
+
+Emergency Advice:
+- Avoid physical activity
+- Visit nearest hospital immediately
+
+==================== MAIN MENU ====================
+Enter your choice: 1
+
+--------------- PATIENT DETAILS ---------------
+
+Enter Patient Name : Amit Joshi
+Enter Patient Age  : 35
+
+Answer the following questions with yes/no
+
+Do you have fever?                    : no
+Do you have cough?                    : no
+Do you have chest pain?               : no
+Do you have headache?                 : no
+Do you have stomach pain?             : no
+Do you have any injury/fracture?      : no
+Do you have skin rash/itching?        : no
+Do you have difficulty breathing?     : no
+Do you have high sugar/frequent urine?: yes
+Do you have body ache/joint pain?     : no
+
+--------------- MEDICAL REPORT ---------------
+
+Patient Name : Amit Joshi
+Patient Age  : 35
+
+Possible Condition    : Diabetes Mellitus
+
+Recommended Department: Endocrinology
+
+Doctor Suggestion     : Consult Endocrinologist
+
+Medical Advice:
+- Avoid sugary food and drinks
+- Monitor blood sugar regularly
+- Follow prescribed diet plan
+
+==================== MAIN MENU ====================
+Enter your choice: 1
+
+--------------- PATIENT DETAILS ---------------
+
+Enter Patient Name : Sneha Patil
+Enter Patient Age  : 52
+
+Answer the following questions with yes/no
+
+Do you have fever?                    : yes
+Do you have cough?                    : no
+Do you have chest pain?               : no
+Do you have headache?                 : no
+Do you have stomach pain?             : no
+Do you have any injury/fracture?      : no
+Do you have skin rash/itching?        : no
+Do you have difficulty breathing?     : no
+Do you have high sugar/frequent urine?: no
+Do you have body ache/joint pain?     : yes
+
+--------------- MEDICAL REPORT ---------------
+
+Patient Name : Sneha Patil
+Patient Age  : 52
+
+Possible Condition    : Dengue or Typhoid
+
+Recommended Department: Infectious Disease / General Medicine
+
+Doctor Suggestion     : Consult General Physician Immediately
+
+Medical Advice:
+- Get blood test done immediately
+- Drink plenty of fluids
+- Take complete bed rest
+
+==================== MAIN MENU ====================
+Enter your choice: 2
+
+--------------- EMERGENCY SERVICES ---------------
+
+Available Emergency Facilities:
+- 24x7 Emergency Ward
+- Ambulance Service
+- ICU Facility
+- Blood Bank
+- Trauma Care
+
+Emergency Contact Number:
++91-108
+
+==================== MAIN MENU ====================
+Enter your choice: 3
+
+--------------- HOSPITAL FACILITIES ---------------
+
+Available Facilities:
+
+- OPD Services
+- Pharmacy
+- Diagnostic Laboratory
+- MRI and CT Scan
+- ICU and Emergency Care
+- Ambulance Service
+- Online Appointment System
+
+==================== MAIN MENU ====================
+Enter your choice: 4
+
+--------------- SPECIALIST DEPARTMENTS ---------------
+
+Departments Available:
+
+1.  Cardiology
+2.  Neurology
+3.  Orthopedics
+4.  Gastroenterology
+5.  General Medicine
+6.  Pediatrics
+7.  Dermatology
+8.  Pulmonology
+9.  Endocrinology
+10. Rheumatology
+
+==================== MAIN MENU ====================
+Enter your choice: 5
+
+--------------- ABOUT EXPERT SYSTEM ---------------
+
+This Expert System uses rule-based logic
+to analyze patient symptoms and provide:
+- Medical Suggestions
+- Department Recommendations
+- Emergency Guidance
+
+Diseases Covered:
+1.  Viral Infection / Flu
+2.  Heart Problem
+3.  Migraine / Stress
+4.  Digestion Problem
+5.  Bone Injury / Fracture
+6.  Skin Infection / Allergy
+7.  Asthma / Respiratory Problem
+8.  Diabetes
+9.  Dengue / Typhoid
+10. Arthritis / Joint Pain
+
+Note:
+This system is for educational purposes only.
+Always consult certified doctors for treatment.
+
+==================== MAIN MENU ====================
+Enter your choice: 6
+
+Thank You for Using Medical Expert System!
+Stay Healthy and Safe."""
