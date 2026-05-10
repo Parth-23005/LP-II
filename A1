@@ -1,0 +1,288 @@
+
+# Problem Statement:Implement Depth First Search (DFS) and Breadth First Search (BFS) using an undirected graph with recursive searching of all vertices.
+
+
+
+class Graph:
+
+    # Constructor
+    def __init__(self):
+        self.graph = {}
+
+    # Add edge in undirected graph
+    def add_edge(self, u, v):
+
+        # Create vertex if not present
+        if u not in self.graph:
+            self.graph[u] = []
+
+        if v not in self.graph:
+            self.graph[v] = []
+
+        # Add connections manually
+        self.graph[u] = self.graph[u] + [v]
+        self.graph[v] = self.graph[v] + [u]
+
+    # ---------------- DFS ----------------
+    def dfs(self, start):
+
+        visited = []
+
+        def dfs_recursive(vertex):
+
+            # Mark vertex as visited
+            visited.append(vertex)
+
+            print(vertex, end=" ")
+
+            # Visit all neighbours
+            for neighbour in self.graph[vertex]:
+
+                found = False
+
+                # Check manually if neighbour visited
+                for item in visited:
+                    if item == neighbour:
+                        found = True
+                        break
+
+                if not found:
+                    dfs_recursive(neighbour)
+
+        # Check if start exists
+        if start not in self.graph:
+            print("Vertex not found!")
+            return
+
+        dfs_recursive(start)
+
+    # ---------------- BFS ----------------
+    def bfs(self, start):
+
+        if start not in self.graph:
+            print("Vertex not found!")
+            return
+
+        visited = []
+        queue = []
+
+        # Add starting vertex
+        visited.append(start)
+        queue.append(start)
+
+        def bfs_recursive():
+
+            # Stop when queue empty
+            if len(queue) == 0:
+                return
+
+            # Remove first element manually
+            vertex = queue[0]
+
+            # Shift queue manually
+            i = 0
+            while i < len(queue) - 1:
+                queue[i] = queue[i + 1]
+                i += 1
+
+            queue.pop()
+
+            print(vertex, end=" ")
+
+            # Visit neighbours
+            for neighbour in self.graph[vertex]:
+
+                found = False
+
+                # Manual visited check
+                for item in visited:
+                    if item == neighbour:
+                        found = True
+                        break
+
+                if not found:
+                    visited.append(neighbour)
+                    queue.append(neighbour)
+
+            bfs_recursive()
+
+        bfs_recursive()
+
+    # Display graph
+    def display(self):
+
+        print("\nGraph Representation:")
+
+        for vertex in self.graph:
+
+            print(vertex, "->", end=" ")
+
+            for neighbour in self.graph[vertex]:
+                print(neighbour, end=" ")
+
+            print()
+
+
+# ---------------- MAIN FUNCTION ----------------
+
+def main():
+
+    g = Graph()
+
+    while True:
+
+        print("\n" + "-" * 10 + " MAIN MENU " + "-" * 10)
+        print("1. Add Edge")
+        print("2. Display Graph")
+        print("3. Depth First Search (DFS)")
+        print("4. Breadth First Search (BFS)")
+        print("5. Exit")
+
+        choice = input("Enter your choice: ")
+
+        # ADD EDGE
+        if choice == "1":
+
+            total = int(input("\nEnter total number of edges: "))
+
+            i = 0
+
+            while i < total:
+
+                print("\nEDGE", i + 1)
+
+                u = input("Enter first vertex: ")
+                v = input("Enter second vertex: ")
+
+                g.add_edge(u, v)
+
+                i += 1
+
+            print("\nEdges added successfully!")
+
+        # DISPLAY GRAPH
+        elif choice == "2":
+
+            g.display()
+
+        # DFS
+        elif choice == "3":
+
+            start = input("\nEnter starting vertex for DFS: ")
+
+            print("\nDFS Traversal:")
+            g.dfs(start)
+
+        # BFS
+        elif choice == "4":
+
+            start = input("\nEnter starting vertex for BFS: ")
+
+            print("\nBFS Traversal:")
+            g.bfs(start)
+
+        # EXIT
+        elif choice == "5":
+
+            print("\n## END OF PROGRAM ##")
+            break
+
+        else:
+            print("\nInvalid Choice! Please try again.")
+
+
+# Driver Code
+main()
+
+# END OF CODE
+
+
+
+"""---------- MAIN MENU ----------
+1. Add Edge
+2. Display Graph
+3. Depth First Search (DFS)
+4. Breadth First Search (BFS)
+5. Exit
+Enter your choice: 1
+
+Enter total number of edges: 6
+
+EDGE 1
+Enter first vertex: A
+Enter second vertex: B
+
+EDGE 2
+Enter first vertex: A
+Enter second vertex: C
+
+EDGE 3
+Enter first vertex: B
+Enter second vertex: D
+
+EDGE 4
+Enter first vertex: B
+Enter second vertex: E
+
+EDGE 5
+Enter first vertex: C
+Enter second vertex: F
+
+EDGE 6
+Enter first vertex: C
+Enter second vertex: G
+
+Edges added successfully!
+
+---------- MAIN MENU ----------
+1. Add Edge
+2. Display Graph
+3. Depth First Search (DFS)
+4. Breadth First Search (BFS)
+5. Exit
+Enter your choice: 2
+
+Graph Representation:
+A -> B C
+B -> A D E
+C -> A F G
+D -> B
+E -> B
+F -> C
+G -> C
+
+---------- MAIN MENU ----------
+1. Add Edge
+2. Display Graph
+3. Depth First Search (DFS)
+4. Breadth First Search (BFS)
+5. Exit
+Enter your choice: 3
+
+Enter starting vertex for DFS: A
+
+DFS Traversal:
+A B D E C F G
+
+---------- MAIN MENU ----------
+1. Add Edge
+2. Display Graph
+3. Depth First Search (DFS)
+4. Breadth First Search (BFS)
+5. Exit
+Enter your choice: 4
+
+Enter starting vertex for BFS: A
+
+BFS Traversal:
+A B C D E F G
+
+---------- MAIN MENU ----------
+1. Add Edge
+2. Display Graph
+3. Depth First Search (DFS)
+4. Breadth First Search (BFS)
+5. Exit
+Enter your choice: 5
+
+## END OF PROGRAM ##"""
