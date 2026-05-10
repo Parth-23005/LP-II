@@ -1,0 +1,426 @@
+# Assignment-B5 : Restaurant Chatbot using Keywords
+
+
+# Problem Statement:Develop an elementary chatbot for customer interaction using keyword searching instead of menu selection.
+
+# BEGINNING OF CODE
+
+
+# ---------------- INTRODUCTION ----------------
+
+def intro():
+
+    print("=" * 60)
+    print("         WELCOME TO K's RESTAURANT CHATBOT")
+    print("=" * 60)
+
+   
+
+# ---------------- MENU DETAILS ----------------
+
+def show_menu():
+
+    print("\n" + "-" * 15 + " MENU CARD " + "-" * 15)
+
+    print("\nSTARTERS")
+    print("- Tomato Soup         : Rs. 120")
+    print("- French Fries        : Rs. 150")
+    print("- Spring Roll         : Rs. 180")
+
+    print("\nMAIN COURSE")
+    print("- Veg Pizza           : Rs. 350")
+    print("- Burger              : Rs. 250")
+    print("- Pasta               : Rs. 300")
+
+    print("\nDESSERTS")
+    print("- Ice Cream           : Rs. 120")
+    print("- Brownie             : Rs. 180")
+
+    print("\nBEVERAGES")
+    print("- Cold Coffee         : Rs. 140")
+    print("- Mojito              : Rs. 160")
+
+
+# ---------------- PRICE DETAILS ----------------
+
+def show_price():
+
+    print("\nAverage Food Prices:\n")
+
+    print("- Pizza        : Rs. 350")
+    print("- Burger       : Rs. 250")
+    print("- Pasta        : Rs. 300")
+    print("- Ice Cream    : Rs. 120")
+    print("- Coffee       : Rs. 140")
+
+    budget = int(input("\nEnter your budget: "))
+
+    if budget < 500:
+
+        print("\nSuggested Items:")
+        print("- Burger")
+        print("- Fries")
+        print("- Coffee")
+
+    elif budget <= 1500:
+
+        print("\nSuggested Items:")
+        print("- Pizza")
+        print("- Pasta")
+        print("- Dessert")
+
+    else:
+
+        print("\nSuggested Items:")
+        print("- Full Family Meal")
+        print("- Premium Desserts")
+        print("- Beverages")
+
+
+# ---------------- RESERVATION ----------------
+
+def reservation():
+
+    print("\n" + "-" * 10 + " TABLE RESERVATION " + "-" * 10)
+
+    name = input("Enter your name: ")
+
+    persons = int(input("Enter number of persons: "))
+
+    date = input("Enter reservation date: ")
+
+    time = input("Enter reservation time: ")
+
+    print("\nReservation Successful!")
+
+    print("\nReservation Details:")
+    print("Name    :", name)
+    print("Persons :", persons)
+    print("Date    :", date)
+    print("Time    :", time)
+
+
+# ---------------- CONTACT DETAILS ----------------
+
+def contact():
+
+    print("\nRestaurant Contact Information:\n")
+
+    print("Phone Number : +91-9876543210")
+    print("Email ID     : ksrestaurant@gmail.com")
+    print("Address      : FC Road, Pune")
+
+
+# ---------------- RESTAURANT TIMING ----------------
+
+def timing():
+
+    print("\nRestaurant Timings:\n")
+
+    print("Monday to Friday : 11 AM to 10 PM")
+    print("Saturday-Sunday  : 10 AM to 11 PM")
+
+
+# ---------------- SPECIAL OFFERS ----------------
+
+def offers():
+
+    print("\nToday's Special Offers:\n")
+
+    print("- Buy 1 Get 1 Free Pizza")
+    print("- 20% Discount on Pasta")
+    print("- Free Dessert above Rs. 1500")
+
+
+# ---------------- FEEDBACK ----------------
+
+def feedback():
+
+    print("\nCustomer Feedback Section\n")
+
+    name = input("Enter your name: ")
+
+    rating = int(input("Give rating (1-5): "))
+
+    comment = input("Enter feedback: ")
+
+    print("\nThank You,", name)
+
+    if rating >= 4:
+
+        print("We are happy you enjoyed our service!")
+
+    elif rating >= 2:
+
+        print("Thank you! We will improve further.")
+
+    else:
+
+        print("Sorry for inconvenience caused.")
+
+
+# ---------------- ABOUT RESTAURANT ----------------
+
+def about():
+
+    print("\nAbout K's Restaurant\n")
+
+    print("K's Restaurant was established in 2015.")
+
+    print("We provide:")
+    print("- Quality Food")
+    print("- Affordable Prices")
+    print("- Friendly Environment")
+    print("- Fast Service")
+
+
+# ---------------- MAIN CHATBOT ----------------
+
+def chatbot():
+
+    while True:
+
+        print("\n" + "=" * 20 + " CHATBOT " + "=" * 20)
+
+        user_input = input("\nYou : ")
+
+        # MENU KEYWORD
+        if "menu" in user_input:
+
+            show_menu()
+
+        # PRICE KEYWORD
+        elif "price" in user_input or \
+             "cost" in user_input or \
+             "pizza" in user_input or \
+             "burger" in user_input:
+
+            show_price()
+
+        # RESERVATION KEYWORD
+        elif "reservation" in user_input or \
+             "book" in user_input or \
+             "table" in user_input:
+
+            reservation()
+
+        # CONTACT KEYWORD
+        elif "contact" in user_input or \
+             "phone" in user_input or \
+             "email" in user_input:
+
+            contact()
+
+        # TIMING KEYWORD
+        elif "timing" in user_input or \
+             "hours" in user_input or \
+             "open" in user_input:
+
+            timing()
+
+        # OFFERS KEYWORD
+        elif "offer" in user_input or \
+             "discount" in user_input:
+
+            offers()
+
+        # FEEDBACK KEYWORD
+        elif "feedback" in user_input or \
+             "review" in user_input:
+
+            feedback()
+
+        # ABOUT KEYWORD
+        elif "about" in user_input or \
+             "restaurant" in user_input:
+
+            about()
+
+        # GREETING KEYWORD
+        elif "hello" in user_input or \
+             "hi" in user_input or \
+             "hey" in user_input:
+
+            print("\nChatbot : Hello! Welcome to K's Restaurant.")
+            print("How can I help you today?")
+
+        # THANK YOU KEYWORD
+        elif "thank" in user_input:
+
+            print("\nChatbot : You're Welcome!")
+            print("Happy to help you.")
+
+        # EXIT KEYWORD
+        elif "exit" in user_input or \
+             "quit" in user_input:
+
+            print("\nChatbot : Thank You for Visiting!")
+            print("Have a Nice Day!")
+
+            break
+
+        # UNKNOWN INPUT
+        else:
+
+            print("\nChatbot : Sorry!")
+            print("I did not understand your question.")
+
+            print("\nTry keywords like:")
+            print("- menu")
+            print("- reservation")
+            print("- contact")
+            print("- offers")
+            print("- feedback")
+            print("- exit")
+
+
+# ---------------- DRIVER CODE ----------------
+
+intro()
+
+chatbot()
+
+# END OF CODE
+
+
+"""============================================================
+         WELCOME TO K's RESTAURANT CHATBOT
+============================================================
+
+==================== CHATBOT ====================
+
+You : hello
+
+Chatbot : Hello! Welcome to K's Restaurant.
+How can I help you today?
+
+==================== CHATBOT ====================
+
+You : menu
+
+--------------- MENU CARD ---------------
+
+STARTERS
+- Tomato Soup         : Rs. 120
+- French Fries        : Rs. 150
+- Spring Roll         : Rs. 180
+
+MAIN COURSE
+- Veg Pizza           : Rs. 350
+- Burger              : Rs. 250
+- Pasta               : Rs. 300
+
+DESSERTS
+- Ice Cream           : Rs. 120
+- Brownie             : Rs. 180
+
+BEVERAGES
+- Cold Coffee         : Rs. 140
+- Mojito              : Rs. 160
+
+==================== CHATBOT ====================
+
+You : price
+
+Average Food Prices:
+
+- Pizza        : Rs. 350
+- Burger       : Rs. 250
+- Pasta        : Rs. 300
+- Ice Cream    : Rs. 120
+- Coffee       : Rs. 140
+
+Enter your budget: 600
+
+Suggested Items:
+- Pizza
+- Pasta
+- Dessert
+
+==================== CHATBOT ====================
+
+You : reservation
+
+---------- TABLE RESERVATION ----------
+Enter your name: Aditya
+Enter number of persons: 3
+Enter reservation date: 12-05-2025
+Enter reservation time: 7:30 PM
+
+Reservation Successful!
+
+Reservation Details:
+Name    : Aditya
+Persons : 3
+Date    : 12-05-2025
+Time    : 7:30 PM
+
+==================== CHATBOT ====================
+
+You : offers
+
+Today's Special Offers:
+
+- Buy 1 Get 1 Free Pizza
+- 20% Discount on Pasta
+- Free Dessert above Rs. 1500
+
+==================== CHATBOT ====================
+
+You : contact
+
+Restaurant Contact Information:
+
+Phone Number : +91-9876543210
+Email ID     : ksrestaurant@gmail.com
+Address      : FC Road, Pune
+
+==================== CHATBOT ====================
+
+You : timing
+
+Restaurant Timings:
+
+Monday to Friday : 11 AM to 10 PM
+Saturday-Sunday  : 10 AM to 11 PM
+
+==================== CHATBOT ====================
+
+You : feedback
+
+Customer Feedback Section
+
+Enter your name: Aditya
+Give rating (1-5): 5
+Enter feedback: Great food and amazing service!
+
+Thank You, Aditya
+We are happy you enjoyed our service!
+
+==================== CHATBOT ====================
+
+You : about
+
+About K's Restaurant
+
+K's Restaurant was established in 2015.
+
+We provide:
+- Quality Food
+- Affordable Prices
+- Friendly Environment
+- Fast Service
+
+==================== CHATBOT ====================
+
+You : thank
+
+Chatbot : You're Welcome!
+Happy to help you.
+
+==================== CHATBOT ====================
+
+You : exit
+
+Chatbot : Thank You for Visiting!
+Have a Nice Day!"""
