@@ -1,0 +1,296 @@
+
+
+# Problem Statement:Implement N-Queen Problem using Constraint Satisfaction,Branch and Bound and Backtracking.
+
+
+
+# ---------------- CREATE EMPTY BOARD ----------------
+
+def create_board(n):
+
+    board = []
+
+    i = 0
+
+    while i < n:
+
+        row = []
+
+        j = 0
+
+        while j < n:
+
+            row.append('.')
+
+            j += 1
+
+        board.append(row)
+
+        i += 1
+
+    return board
+
+
+# ---------------- PRINT BOARD ----------------
+
+def print_board(board):
+
+    if board is None:
+
+        print("\nNo Solution Exists!")
+        return
+
+    print()
+
+    i = 0
+
+    while i < len(board):
+
+        j = 0
+
+        while j < len(board[i]):
+
+            print(board[i][j], end=" ")
+
+            j += 1
+
+        print()
+
+        i += 1
+
+
+# ---------------- PLACE QUEENS ----------------
+
+def place_queens(row, cols, leftDiagonal, rightDiagonal, current, n):
+
+    # Base Case
+    if row == n:
+        return True
+
+    col = 0
+
+    while col < n:
+
+        # Check if safe
+        if cols[col] == 0 and \
+           rightDiagonal[row + col] == 0 and \
+           leftDiagonal[row - col + n - 1] == 0:
+
+            # Place Queen
+            cols[col] = 1
+            rightDiagonal[row + col] = 1
+            leftDiagonal[row - col + n - 1] = 1
+
+            current.append(col)
+
+            # Recursive Call
+            if place_queens(row + 1,
+                            cols,
+                            leftDiagonal,
+                            rightDiagonal,
+                            current,
+                            n):
+
+                return True
+
+            # Backtracking
+            current.pop()
+
+            cols[col] = 0
+            rightDiagonal[row + col] = 0
+            leftDiagonal[row - col + n - 1] = 0
+
+        col += 1
+
+    return False
+
+
+# ---------------- N-QUEEN FUNCTION ----------------
+
+def solve_n_queen(n):
+
+    cols = []
+    leftDiagonal = []
+    rightDiagonal = []
+    current = []
+
+    # Initialize arrays manually
+    i = 0
+
+    while i < n:
+
+        cols.append(0)
+
+        i += 1
+
+    i = 0
+
+    while i < (2 * n):
+
+        leftDiagonal.append(0)
+        rightDiagonal.append(0)
+
+        i += 1
+
+    board = create_board(n)
+
+    # Solve Problem
+    success = place_queens(0,
+                           cols,
+                           leftDiagonal,
+                           rightDiagonal,
+                           current,
+                           n)
+
+    if success:
+
+        i = 0
+
+        while i < n:
+
+            board[i][current[i]] = 'Q'
+
+            i += 1
+
+        return board
+
+    else:
+
+        return None
+
+
+# ---------------- DISPLAY INTRO ----------------
+
+def display_intro():
+
+    print("\nN-Queen Problem")
+    print("Place N Queens on NxN Chessboard")
+    print("Such that no two queens attack each other.\n")
+
+
+# ---------------- MAIN MENU ----------------
+
+def main():
+
+    board = None
+    n = 0
+
+    while True:
+
+        print("\n" + "-" * 10 + " MAIN MENU " + "-" * 10)
+
+        print("1. Enter Number of Queens")
+        print("2. Solve N-Queen Problem")
+        print("3. Display Board")
+        print("4. Exit")
+
+        choice = input("Enter your choice: ")
+
+        # ENTER NUMBER OF QUEENS
+        if choice == "1":
+
+            n = int(input("\nEnter value of N: "))
+
+            print("\nValue saved successfully!")
+
+        # SOLVE PROBLEM
+        elif choice == "2":
+
+            if n <= 0:
+
+                print("\nPlease enter valid value of N first!")
+
+            else:
+
+                board = solve_n_queen(n)
+
+                if board is not None:
+
+                    print("\nSolution Found Successfully!")
+
+                else:
+
+                    print("\nNo Solution Exists!")
+
+        # DISPLAY BOARD
+        elif choice == "3":
+
+            if board is None:
+
+                print("\nBoard is empty or no solution found!")
+
+            else:
+
+                print("\nFinal Chess Board:")
+
+                print_board(board)
+
+        # EXIT
+        elif choice == "4":
+
+            print("\n## END OF PROGRAM ##")
+
+            break
+
+        # INVALID CHOICE
+        else:
+
+            print("\nInvalid Choice! Please try again.")
+
+
+# ---------------- DRIVER CODE ----------------
+
+display_intro()
+
+main()
+
+# END OF CODE
+
+
+
+"""N-Queen Problem
+Place N Queens on NxN Chessboard
+Such that no two queens attack each other.
+
+---------- MAIN MENU ----------
+1. Enter Number of Queens
+2. Solve N-Queen Problem
+3. Display Board
+4. Exit
+Enter your choice: 1
+
+Enter value of N: 4
+
+Value saved successfully!
+
+---------- MAIN MENU ----------
+1. Enter Number of Queens
+2. Solve N-Queen Problem
+3. Display Board
+4. Exit
+Enter your choice: 2
+
+Solution Found Successfully!
+
+---------- MAIN MENU ----------
+1. Enter Number of Queens
+2. Solve N-Queen Problem
+3. Display Board
+4. Exit
+Enter your choice: 3
+
+Final Chess Board:
+
+. Q . .   → Queen in column 1
+. . . Q   → Queen in column 3
+Q . . .   → Queen in column 0
+. . Q .   → Queen in column 2
+
+---------- MAIN MENU ----------
+1. Enter Number of Queens
+2. Solve N-Queen Problem
+3. Display Board
+4. Exit
+Enter your choice: 4
+
+## END OF PROGRAM ##"""
